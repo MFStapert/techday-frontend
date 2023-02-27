@@ -1,0 +1,16 @@
+---
+import Default from '../layouts/Default.astro';
+import Hero from '../components/Hero.astro';
+import Carousel from '../components/Carousel.svelte';
+import NewsletterComponent from '../components/NewsLetter';
+---
+
+<Default title="Welcome to Astro.">
+
+    <Hero></Hero>
+
+    <Carousel client:visible></Carousel>
+
+    <NewsletterComponent client:load></NewsletterComponent>
+
+</Default>
