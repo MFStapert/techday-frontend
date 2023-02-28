@@ -1,0 +1,10 @@
+.card {
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.25rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem #0000000d;
+    color: #333333;
+    z-index: 2;
+    position: relative;
+}

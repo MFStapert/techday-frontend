@@ -1,0 +1,93 @@
+.App {
+    text-align: center;
+}
+
+.logo {
+    animation: logo-spin infinite 20s linear;
+    height: 100px;
+    pointer-events: none;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+}
+
+.main {
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar {
+    white-space: nowrap;
+}
+
+.content {
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.link {
+    color: #b318f0;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333333;
+    font-size: 2rem;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.03px;
+    line-height: 1.25;
+}
+
+p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.625rem;
+    white-space: pre-line;
+}
+
+button {
+    border: inherit;
+    color: #333333;
+    background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+        linear-gradient(rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.00));
+    border-radius: 0.2875rem;
+    height: auto;
+    width: auto;
+    padding: 1rem 2rem;
+    white-space: nowrap;
+
+    text-decoration: none;
+    letter-spacing: 0.078125rem;
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+    background-size: 0 0, auto;
+    transition: background-color 100ms linear;
+}
+
+button:hover {
+    background-size: auto, auto;
+}
+
+.backgroundbutton {
+    color: #ffffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+    linear-gradient(var(--background-color), var(--background-color));
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
