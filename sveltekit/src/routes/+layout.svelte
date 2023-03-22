@@ -1,3 +1,7 @@
+<script>
+	import '../styles/main.scss'
+</script>
+
 <svelte:head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,9 +32,3 @@
 		<h2>Footer</h2>
 	</div>
 </footer>
-
-<style lang="scss">
-	:global {
-		@import '../styles/main.scss';
-	}
-</style>
