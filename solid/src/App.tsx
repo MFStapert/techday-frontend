@@ -1,4 +1,4 @@
-import { createSignal, Match, Show, Switch } from 'solid-js';
+import { createSignal, Match, Switch } from 'solid-js';
 import { LitPuzzle } from './components/lit/lit-puzzle';
 import { NewsletterComponent } from './components/lit/newsletter-component';
 import { VideoComponent } from './components/lit/video-component';
@@ -20,10 +20,11 @@ enum SelectedContent {
 function App() {
 
   const [showContent, setShowContent] = createSignal(SelectedContent.MAIN);
+  const [bgColour, setBgColour] = createSignal('#34568B');
 
-  function setBackgroundColour() {
+  function pickRandomBackgroundColour() {
     const newColour = backgroundColours[Math.floor(Math.random() * backgroundColours.length)];
-    document.documentElement.style.setProperty('--background-color', newColour);
+    setBgColour(newColour);
   }
 
   return (
@@ -37,7 +38,8 @@ function App() {
           <button onClick={() => setShowContent(SelectedContent.WOORDEL)}>Speel Woordel</button>
           <button onClick={() => setShowContent(SelectedContent.VIDEO)}>Bonuspagina</button>
         </div>
-        <div class={styles.content}>
+        <div class={styles.content}
+             style={{ 'background-color': bgColour() }}>
           <Switch>
             <Match when={showContent() == SelectedContent.MAIN}
                    keyed={false}>
@@ -45,8 +47,8 @@ function App() {
                     text="Demo applicatie om wat gevoel te krijgen voor Solid en Lit">
 
                 <div style={{ display: 'flex', 'justify-content': 'center', width: '100%', 'margin-top': '2rem' }}>
-                  <button onClick={() => setBackgroundColour()}
-                          class={styles.backgroundbutton}>
+                  <button onClick={() => pickRandomBackgroundColour()}
+                          style={{ 'color': '#ffffff', 'background-color': bgColour() }}>
                     Andere achtergrond
                   </button>
                 </div>
