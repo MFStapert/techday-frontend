@@ -3,6 +3,7 @@ import { LitPuzzle } from './components/lit/lit-puzzle';
 import { NewsletterComponent } from './components/lit/newsletter-component';
 import { VideoComponent } from './components/lit/video-component';
 import { Card } from './components/solid/card';
+import { RenderCycleCard } from './components/solid/renderCycleCard';
 import { backgroundColours } from './components/solid/variables';
 import { WoordelCard } from './components/solid/woordel-card';
 
@@ -53,6 +54,7 @@ function App() {
                   </button>
                 </div>
               </Card>
+              <RenderCycleCard/>
             </Match>
             <Match when={showContent() == SelectedContent.WOORDEL}
                    keyed={false}>
