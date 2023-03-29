@@ -1,11 +1,15 @@
 import { LitElement, html, css } from 'lit';
 import { classMap} from 'lit/directives/class-map.js';
-import {isViewed} from '../stores/isViewed'; 
-import { withStores } from "@nanostores/lit";    
+import {isViewed} from '../stores/isViewed';
+import { withStores } from "@nanostores/lit";
 
 const tagName = 'newsletter-component';
 
 export default class NewsletterComponent extends withStores(LitElement, [isViewed]) {
+
+    static properties = {
+        subject: {type: String}
+    }
 
   static styles = css`
    .hidden {
@@ -39,7 +43,7 @@ export default class NewsletterComponent extends withStores(LitElement, [isViewe
         <button
             class=${classMap(classes)} 
         onclick="alert('You have been subscribed!');">
-            Subscribe to our newsletter
+            Subscribe to our ${this.subject} newsletter
         </button>
     `;
   }

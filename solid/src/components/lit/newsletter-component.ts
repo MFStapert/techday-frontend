@@ -1,9 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-
-// @customElement("newsletter-component")
 export class NewsletterComponent extends LitElement {
+
+  @property()
+  subject?: string;
 
   static styles = css`
     button {
@@ -29,7 +30,7 @@ export class NewsletterComponent extends LitElement {
   render() {
     return html`
         <button onclick="alert('You have been subscribed!');">
-            Subscribe to our newsletter
+            Subscribe to our ${this.subject || ''} newsletter
         </button>
     `;
   }

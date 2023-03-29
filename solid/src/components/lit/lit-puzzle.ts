@@ -1,16 +1,35 @@
 import { LitElement, html, css } from 'lit';
 import { repeat } from 'lit/directives/repeat.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { state } from 'lit/decorators.js';
 
 const TOTAL_GUESSES = 6;
 const correctWord = 'avisi';
 
 
 export class LitPuzzle extends LitElement {
+
+  // @state is een property die niet naar buiten wordt gecommuniceerd, en automatisch de component update bij een wijziging
+  // Je hoeft zo dus niet zelf this.requestUpdate() of hasChanged methodes aan te roepen.
+  // https://lit.dev/docs/components/properties/#internal-reactive-state
+  @state()
+  private remainingGuesses: number;
+
+  @state()
+  private nextLetter: number;
+
+  private readonly guessesMade: Array<Array<string>> = [];
+
   constructor() {
     super();
-    document.addEventListener('keyup', (e) => {
 
+    this.remainingGuesses = TOTAL_GUESSES;
+    this.nextLetter = 0;
+    for(let i=0; i<TOTAL_GUESSES; i++) {
+      this.guessesMade.push(['', '', '', '', '']);
+    }
+
+    document.addEventListener('keyup', (e) => {
       if (this.remainingGuesses === 0) {
         return;
       }
@@ -73,10 +92,6 @@ export class LitPuzzle extends LitElement {
   }
   `;
 
-  remainingGuesses = TOTAL_GUESSES;
-  guessesMade: Array<Array<string>> = [['', '', '', '', ''], ['', '', '', '', ''], ['', '', '', '', ''], ['', '', '', '', ''], ['', '', '', '', ''], ['', '', '', '', '']];
-  nextLetter = 0;
-
   insertLetter(pressedKey: string) {
     if (this.nextLetter === 5) {
       return;
@@ -85,13 +100,11 @@ export class LitPuzzle extends LitElement {
 
     this.guessesMade[TOTAL_GUESSES - this.remainingGuesses][this.nextLetter] = pressedKey;
     this.nextLetter += 1;
-    this.requestUpdate();
   }
 
   deleteLetter() {
     this.guessesMade[TOTAL_GUESSES - this.remainingGuesses][this.nextLetter - 1] = '';
     this.nextLetter -= 1;
-    this.requestUpdate();
   }
 
   checkGuess() {
@@ -104,19 +117,18 @@ export class LitPuzzle extends LitElement {
     }
     if (this.guessesMade[TOTAL_GUESSES - this.remainingGuesses].join('') === correctWord) {
       this.remainingGuesses = 0;
-      this.requestUpdate();
-      setTimeout(() => alert('Correct! Lekker gewerkt!'), 10);
+      // We roepen de alert aan op een setTimeout, om de component tijd te geven om te updaten.
+      setTimeout(() => alert('Correct! Lekker gewerkt!'), 50);
       return;
     } else {
       this.remainingGuesses -= 1;
       this.nextLetter = 0;
-      this.requestUpdate();
 
       if (this.remainingGuesses === 0) {
         setTimeout(() => {
           alert('Helaas, je hebt verloren!');
           alert(`Het juiste woord was: "${correctWord}"`);
-        }, 10);
+        }, 50);
       }
     }
   }
