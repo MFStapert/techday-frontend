@@ -8,7 +8,7 @@ import { backgroundColours } from './components/solid/variables';
 import { WoordelCard } from './components/solid/woordel-card';
 
 import logo from './logo.svg';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 
 enum SelectedContent {
@@ -65,7 +65,7 @@ function App() {
               <video-component/>
             </Match>
           </Switch>
-          {showContent() == SelectedContent.MAIN && <newsletter-component/>}
+          {showContent() == SelectedContent.MAIN && <newsletter-component subject={"SolidJS"}/>}
         </div>
       </div>
     </div>
