@@ -16,7 +16,7 @@ export default class NewsletterComponent extends withStores(LitElement, [isViewe
         display: none;
     }
     button {
-      position: absolute;
+      position: fixed;
       right: 2rem;
       bottom: 2rem;
       padding: 1rem 2rem;
@@ -42,7 +42,7 @@ export default class NewsletterComponent extends withStores(LitElement, [isViewe
      return html`
         <button
             class=${classMap(classes)} 
-        onclick="alert('You have been subscribed!');">
+            onclick="alert('You have been subscribed!');">
             Subscribe to our ${this.subject} newsletter
         </button>
     `;
