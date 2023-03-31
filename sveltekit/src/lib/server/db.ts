@@ -12,7 +12,6 @@ export interface Post {
 const schema = new Schema<Post>({
 	title: { type: String, required: true },
 	date: { type: String, required: true },
-	content: String
 });
 
 const PostModel = model<Post>('Post', schema, 'Post');

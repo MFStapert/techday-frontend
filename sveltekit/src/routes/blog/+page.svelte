@@ -7,8 +7,7 @@
 
 {#each data.posts as post}
 	<div class="blog-item">
-		<!-- sveltekit:prefetch  -->
-		<a href="/blog/{post._id}"> 
+		<a data-sveltekit-preload-data="hover" href="/blog/{post._id}"> 
 			<h1>{post.title}!</h1>
 			<h3>{post.date}</h3>
 		</a>
