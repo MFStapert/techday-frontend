@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 export class NewsletterComponent extends LitElement {
 
   @property()
-  subject?: string;
+  declare subject?: string;
 
   static styles = css`
     button {

@@ -1,5 +1,4 @@
-import { LitElement, html, css } from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
 
 export class VideoComponent extends LitElement {
 

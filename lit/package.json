@@ -1,0 +1,9 @@
+{
+  "name": "lit-dingen",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    "lit": "^2.4.1"
+  }
+}

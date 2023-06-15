@@ -13,23 +13,23 @@ export class LitPuzzle extends LitElement {
   // Je hoeft zo dus niet zelf this.requestUpdate() of hasChanged methodes aan te roepen.
   // https://lit.dev/docs/components/properties/#internal-reactive-state
   @state()
-  private remainingGuesses: number;
+  declare private remainingGuesses: number;
 
   @state()
-  private nextLetter: number;
+  declare private nextLetter: number;
 
-  private readonly guessesMade: Array<Array<string>> = [];
+  private readonly guessesMade: Array<Array<string>>;
 
   constructor() {
     super();
-
+    this.guessesMade = [];
     this.remainingGuesses = TOTAL_GUESSES;
     this.nextLetter = 0;
     for(let i=0; i<TOTAL_GUESSES; i++) {
       this.guessesMade.push(['', '', '', '', '']);
     }
 
-    document.addEventListener('keyup', (e) => {
+    addEventListener('keyup', (e) => {
       if (this.remainingGuesses === 0) {
         return;
       }
