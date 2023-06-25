@@ -1,4 +1,5 @@
 import pkg from 'mongoose';
+
 const { Schema, model, connect } = pkg;
 const dbhost = import.meta.env.VITE_DB_HOST as string;
 
@@ -18,8 +19,7 @@ const PostModel = model<Post>('Post', schema, 'Post');
 
 export async function getPosts(): Promise<Post[]> {
 	await connect(dbhost);
-	const posts = JSON.parse(JSON.stringify(await PostModel.find()));
-	return posts;
+	return JSON.parse(JSON.stringify(await PostModel.find()));
 }
 
 export async function getPost(id: string): Promise<Post|null> {

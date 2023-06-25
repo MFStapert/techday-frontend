@@ -36,7 +36,6 @@ function App() {
         <div class={styles.sidebar}>
           <button onClick={() => setShowContent(SelectedContent.MAIN)}>Hoofdpagina</button>
           <button onClick={() => setShowContent(SelectedContent.WOORDEL)}>Speel Woordel</button>
-          <button onClick={() => setShowContent(SelectedContent.VIDEO)}>Bonuspagina</button>
         </div>
         <div class={styles.content}
              style={{ 'background-color': bgColour() }}>
