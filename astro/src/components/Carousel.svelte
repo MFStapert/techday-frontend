@@ -44,8 +44,7 @@
         isViewed.set(true);
         setInterval(() => {
             const slideWidth = slide.clientWidth ?? 0;
-            var maxScrollLeft = slidesContainer?.scrollWidth - slidesContainer?.clientWidth;
-            var maxScrollLeft = slidesContainer?.scrollWidth - slidesContainer?.clientWidth;
+            let maxScrollLeft = slidesContainer?.scrollWidth - slidesContainer?.clientWidth;
 
             if (slidesContainer.scrollLeft + slideWidth > maxScrollLeft) {
                 slidesContainer.scrollLeft = 0;
